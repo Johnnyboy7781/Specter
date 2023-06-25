@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model User {
+  id          Int          @id @default(autoincrement())
+  email       String       @unique
+  password    String
+  drinks      Drink[]
+  ingredients Ingredient[]
+  created_at  DateTime     @default(now())
+  updated_at  DateTime?
+}
+
+// Drink tables
+model Drink {
+  id          Int               @id @default(autoincrement())
+  user        User              @relation(fields: [user_id], references: [id])
+  user_id     Int // foreign key
+  name        String
+  version     Int               @default(1)
+  components  DrinkComponents[]
+  steps       DrinkSteps[]
+  glassware   String?
+  ice         String?
+  garnish     String?
+  description String?
+  created_at  DateTime          @default(now())
+  updated_at  DateTime?
+}
+
+model DrinkComponents {
+  id         Int       @id @default(autoincrement())
+  drink      Drink     @relation(fields: [drink_id], references: [id])
+  drink_id   Int // foreign key
+  name       String
+  amount     String
+  created_at DateTime  @default(now())
+  updated_at DateTime?
+}
+
+model DrinkSteps {
+  id          Int       @id @default(autoincrement())
+  drink       Drink     @relation(fields: [drink_id], references: [id])
+  drink_id    Int // foreign key
+  step_number Int
+  step_text   String
+  created_at  DateTime  @default(now())
+  updated_at  DateTime?
+}
+
+// Ingredient tables
+model Ingredient {
+  id          Int                    @id @default(autoincrement())
+  user        User                   @relation(fields: [user_id], references: [id])
+  user_id     Int // foreign key
+  name        String
+  version     Int                    @default(1)
+  components  IngredientComponents[]
+  steps       IngredientSteps[]
+  description String?
+  created_at  DateTime               @default(now())
+  updated_at  DateTime?
+}
+
+model IngredientComponents {
+  id            Int        @id @default(autoincrement())
+  ingredient    Ingredient @relation(fields: [ingredient_id], references: [id])
+  ingredient_id Int // foreign key
+  name          String
+  amount        String
+  created_at    DateTime   @default(now())
+  updated_at    DateTime?
+}
+
+model IngredientSteps {
+  id            Int        @id @default(autoincrement())
+  ingredient    Ingredient @relation(fields: [ingredient_id], references: [id])
+  ingredient_id Int // foreign key
+  step_number   Int
+  step_text     String
+  created_at    DateTime   @default(now())
+  updated_at    DateTime?
+}
