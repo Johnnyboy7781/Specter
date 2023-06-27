@@ -7,8 +7,8 @@ export default function NavBar() {
             className="nav-image"
             alt="drinks list" 
             src="/drinks.svg"
-            height={40}
-            width={40}
+            height={50}
+            width={50}
         />
         <div className="nav-center">
             <Image 
@@ -23,8 +23,8 @@ export default function NavBar() {
             className="nav-image"
             alt="ingredients list" 
             src="/ingredients.svg"
-            height={40}
-            width={40}
+            height={50}
+            width={50}
         />
     </nav>
   )
