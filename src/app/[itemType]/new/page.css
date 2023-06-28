@@ -1,0 +1,58 @@
+form {
+  padding: 1.5rem;
+  padding-top: 5rem;
+}
+/* 
+#name,
+#glassware,
+#ice,
+#garnish,
+#description {
+    border: 0;
+}
+
+#name,
+#glassware,
+#ice,
+#garnish {
+    background-color: var(--foreground);
+    width: 100%;
+    border-radius: 15px;
+}
+
+#description {
+    background-color: var(--purple-dark);
+    resize: none;
+} */
+
+#name {
+    font-size: 2.7em;
+    padding: 0.3rem 0.6rem;
+    border: 0;
+    background-color: var(--foreground);
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Quick Facts */
+.quick-facts-container > * {
+    display: flex;
+}
+
+#glassware,
+#ice,
+#garnish {
+    background-color: var(--foreground);
+    width: 100%;
+    border-radius: 15px;
+    border: 0;
+}
+
+/* Description */
+#description {
+    background-color: var(--purple-dark);
+    width: 100%;
+    border-radius: 15px;
+    border: 0;
+    resize: none;
+}

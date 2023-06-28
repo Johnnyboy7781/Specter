@@ -1,3 +1,5 @@
+import TopBubbles from "../components/TopBubbles";
+
 export default function ItemLayout({
     children
   }: {
@@ -5,7 +7,8 @@ export default function ItemLayout({
   }) {
   return (
     <div>
+        <TopBubbles />
         {children}
     </div>
   )
-}
+}  

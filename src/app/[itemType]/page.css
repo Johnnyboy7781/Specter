@@ -1,0 +1,25 @@
+.circle-container {
+    position: relative;
+    z-index: -999;
+}
+
+.circle-1, 
+.circle-2 {
+    position: absolute;
+    aspect-ratio: 1;
+    background-color: #614778;
+    border-radius: 100%;
+    opacity: 0.5;
+}
+
+.circle-1 {
+    width: 50vw;
+    top: -1rem;
+    left: -4rem;
+}
+
+.circle-2 {
+    width: 70vw;
+    top: -11rem;
+    left: 4rem;
+}
