@@ -1,11 +1,11 @@
 import NavBar from "../components/NavBar";
 
-export default function page() {
+export default function ItemList() {
   return (
     <div>
-        page
+        List
         <footer>
-          <NavBar />
+            <NavBar />
         </footer>
     </div>
   )
